@@ -44,7 +44,7 @@
 <body>
   <h1 class="main-title">2023년 동양고등학교 2학년 4반 정보 웹사이트</h1>
   <div id="countdownContainer">
-    <p id="smallTitle">중간고까지</p>
+    <p id="smallTitle">중간고사사까지</p>
     <p id="bigCountdown" style="font-size: 32px; font-weight: bold;">D-00</p>
   </div>
 
@@ -128,7 +128,6 @@
   <script>
     // 디데이 날짜 설정 (YYYY-MM-DD 형식)
     const dDayDate = new Date("2023-10-17");
-    const smallTitle = document.getElementById("smallTitle");
 
   // 디데이 계산 함수
   function calculateCountdown(targetDate) {
@@ -143,6 +142,7 @@
     const daysLeft = calculateCountdown(dDayDate);
     const bigCountdown = document.getElementById("bigCountdown");
     bigCountdown.textContent = "D-" + (daysLeft >= 0 ? daysLeft.toString().padStart(2, '0') : "00");
+    const smallTitle = document.getElementById("smallTitle");
   }
 
     // 요일 목록
