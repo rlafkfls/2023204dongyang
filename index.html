@@ -1,184 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2023년 동양고등학교 2학년 4반 정보 웹사이트</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    .main-title {
-      font-size: 24px;
-      margin-top: 50px;
-    }
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 20px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    .subpage-content {
-      display: none;
-      margin-top: 50px;
-    }
-    table {
-      border-collapse: collapse;
-      margin-top: 20px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    table, th, td {
-      border: 1px solid black;
-      padding: 10px; /* 셀 안의 간격을 지정 */
-    }
-    td.dark-background {
-      background-color: #d5d5d5;
-    }
-  </style>
-</head>
-<body>
-  <h1 class="main-title">2023년 동양고등학교 2학년 4반 정보 웹사이트</h1>
-  <div id="countdownContainer">
-    <p id="smallTitle">중간고사까지</p>
-    <p id="bigCountdown" style="font-size: 32px; font-weight: bold;">D-00</p>
-  </div>
-
-  <button class="button" id="showLunchButton">이번주 식단표</button>
-  <button class="button" id="showExamsButton">수행평가 목록</button>
-  
-  <div class="subpage-content" id="lunchPage">
-    <h2>이번주 식단표</h2>
-    <table id="lunchTable">
-      <!-- 급식 정보 행 -->
-      <tr id="mealRow">
-        <!-- 여기에 급식 정보가 들어갈 셀 -->
-      </tr>
-    </table>
-    <button class="button" id="backToMainButton">메인으로 돌아가기</button>
-  </div>
-
-  <div class="subpage-content" id="examsPage">
-    <h2>수행평가 목록</h2>
-    <table id="examsTable">
-      <!-- 수행평가 테이블 내용 -->
-      <tr>
-        <th>과목</th>
-        <th>수행평가</th>
-        <th>마감일</th>
-      </tr>
-      <tr>
-        <td class="dark-background">국어</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">영어</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">수학</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">물리학</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">화학</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">생명과학</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">심화수학</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">프로그래밍</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">데이터과학과<br>머신러닝</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">일본어</td>
-        <td>가타카나 쓰기</td>
-        <td>2023-10-31</td>
-      </tr>
-    </table>
-    <button class="button" id="backToMainButton2">메인으로 돌아가기</button>
-  </div>
-
-  <script>
-    // 디데이 날짜 설정 (YYYY-MM-DD 형식)
-    const dDayDate = new Date("2023-10-17T00:00:00+09:00");
-
-
-  // 디데이 계산 함수
-  function calculateCountdown(targetDate) {
-  const currentDate = new Date();
-  const timeDifference = targetDate - currentDate;
-  const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // 올림으로 변경
-  return daysLeft;
-}
-
-// 초기 로드시 디데이 표시 업데이트
-function updateCountdown() {
-  const daysLeft = calculateCountdown(dDayDate);
-  const bigCountdown = document.getElementById("bigCountdown");
-  bigCountdown.textContent = "D-" + (daysLeft >= 0 ? daysLeft.toString().padStart(2, '0') : "00");
-  const smallTitle = document.getElementById("smallTitle");
-  }
-
-    // 요일 목록
-    const daysOfWeek = ["월", "화", "수", "목", "금"];
-
-    // 오늘의 날짜 표시 업데이트
-    function updateTodayDate() {
-      const todayDateRow = document.querySelector("#lunchTable tr:first-child");
-      const today = new Date();
-      const todayIndex = today.getDay(); // 오늘의 요일 인덱스
-      
-      // 요일을 표시
-      for (let i = 0; i < daysOfWeek.length; i++) {
-        const cell = document.createElement("th");
-        cell.textContent = daysOfWeek[i];
-        if (i === todayIndex) {
-          cell.classList.add("dark-background");
-        }
-        todayDateRow.appendChild(cell);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2023년 동양고등학교 2학년 4반 정보 웹사이트</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
       }
-    }
-    updateCountdown();
-    updateTodayDate();
+      .main-title {
+        font-size: 24px;
+        margin-top: 50px;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 20px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .subpage-content {
+        display: none;
+        margin-top: 50px;
+      }
+      table {
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px; /* 셀 안의 간격을 지정 */
+      }
+      td.dark-background {
+        background-color: #d5d5d5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="main-title">2023년 동양고등학교 2학년 4반 정보 웹사이트</h1>
+    <div id="countdownContainer">
+      <p id="smallTitle">중간고사까지</p>
+      <p id="bigCountdown" style="font-size: 32px; font-weight: bold">D-00</p>
+    </div>
 
-    const showLunchButton = document.getElementById("showLunchButton");
-    const showExamsButton = document.getElementById("showExamsButton");
-    const lunchPage = document.getElementById("lunchPage");
-    const examsPage = document.getElementById("examsPage");
-    const backToMainButton = document.getElementById("backToMainButton");
-    const backToMainButton2 = document.getElementById("backToMainButton2");
-    const lunchTable = document.getElementById("lunchTable");
-    
-    // 일주일 급식 정보
+    <button class="button" id="showScheduleButton">2-4 시간표</button>
+    <button class="button" id="showLunchButton">이번주 식단표</button>
+    <button class="button" id="showExamsButton">수행평가 목록</button>
 
-    const csvData = `8월21일,8월22일,8월23일,8월24일,8월25일
+    <div class="subpage-content" id="schedulePage">
+      <h2>2-4 시간표</h2>
+      <table id="scheduleTable">
+        <tr>
+          <th></th>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+        </tr>
+        <tr>
+          <th>1교시 (8:00~8:50)</th>
+          <th>자율</th>
+          <th>일본어1</th>
+          <th>수학2</th>
+          <th>영어2A</th>
+          <th>영어2A</th>
+        </tr>
+        <tr>
+          <th>2교시 (9:00~9:50)</th>
+          <th>운동A</th>
+          <th>~~ㄴ</th>
+          <th>수학2</th>
+          <th>영어2A</th>
+          <th>영어2A</th>
+        </tr>
+      </table>
+      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
+    </div>
+
+    <div class="subpage-content" id="lunchPage">
+      <h2>이번주 식단표 (점심)</h2>
+      <table id="lunchTable">
+        <!-- 급식 정보 행 -->
+        <tr id="mealRow">
+          <!-- 여기에 급식 정보가 들어갈 셀 -->
+        </tr>
+      </table>
+      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
+    </div>
+
+    <div class="subpage-content" id="examsPage">
+      <h2>수행평가 목록</h2>
+      <table id="examsTable">
+        <!-- 수행평가 테이블 내용 -->
+        <tr>
+          <th>과목</th>
+          <th>수행평가</th>
+          <th>마감일</th>
+        </tr>
+        <tr>
+          <td class="dark-background">국어</td>
+          <td></td>
+          <td>2023-XX-XX</td>
+        </tr>
+        <tr>
+          <td class="dark-background">영어</td>
+          <td></td>
+          <td>2023-XX-XX</td>
+        </tr>
+        <tr>
+          <td class="dark-background">수학</td>
+          <td></td>
+          <td>2023-XX-XX</td>
+        </tr>
+        <tr>
+          <td class="dark-background">물리학</td>
+          <td></td>
+          <td>2023-XX-XX</td>
+        </tr>
+        <tr>
+          <td class="dark-background">화학</td>
+          <td></td>
+          <td>2023-XX-XX</td>
+        </tr>
+        <tr>
+          <td class="dark-background">생명과학</td>
+          <td></td>
+          <td>2023-XX-XX</td>
+        </tr>
+        <tr>
+          <td class="dark-background">심화수학</td>
+          <td></td>
+          <td>2023-XX-XX</td>
+        </tr>
+        <tr>
+          <td class="dark-background">프로그래밍</td>
+          <td></td>
+          <td>2023-XX-XX</td>
+        </tr>
+        <tr>
+          <td class="dark-background">데이터과학과<br />머신러닝</td>
+          <td></td>
+          <td>2023-XX-XX</td>
+        </tr>
+        <tr>
+          <td class="dark-background">일본어</td>
+          <td>가타카나 쓰기</td>
+          <td>2023-10-31</td>
+        </tr>
+      </table>
+      <button class="button" id="backToMainButton2">메인으로 돌아가기</button>
+    </div>
+
+    <script>
+      // 디데이 날짜 설정 (YYYY-MM-DD 형식)
+      const dDayDate = new Date("2023-10-17T00:00:00+09:00");
+
+      // 디데이 계산 함수
+      function calculateCountdown(targetDate) {
+        const currentDate = new Date();
+        const timeDifference = targetDate - currentDate;
+        const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // 올림으로 변경
+        return daysLeft;
+      }
+
+      // 초기 로드시 디데이 표시 업데이트
+      function updateCountdown() {
+        const daysLeft = calculateCountdown(dDayDate);
+        const bigCountdown = document.getElementById("bigCountdown");
+        bigCountdown.textContent =
+          "D-" + (daysLeft >= 0 ? daysLeft.toString().padStart(2, "0") : "00");
+        const smallTitle = document.getElementById("smallTitle");
+      }
+
+      // 요일 목록
+      const daysOfWeek = ["월", "화", "수", "목", "금"];
+
+      // 오늘의 날짜 표시 업데이트
+      function updateTodayDate() {
+        const todayDateRow = document.querySelector(
+          "#lunchTable tr:first-child"
+        );
+        const today = new Date();
+        const todayIndex = today.getDay(); // 오늘의 요일 인덱스
+
+        // 요일을 표시
+        for (let i = 0; i < daysOfWeek.length; i++) {
+          const cell = document.createElement("th");
+          cell.textContent = daysOfWeek[i];
+          if (i === todayIndex) {
+            cell.classList.add("dark-background");
+          }
+          todayDateRow.appendChild(cell);
+        }
+      }
+      updateCountdown();
+      updateTodayDate();
+
+      const showLunchButton = document.getElementById("showLunchButton");
+      const showExamsButton = document.getElementById("showExamsButton");
+      const showScheduleButton = document.getElementById("showScheduleButton");
+      const lunchPage = document.getElementById("lunchPage");
+      const examsPage = document.getElementById("examsPage");
+      const schedulePage = document.getElementById("schedulePage");
+      const backToMainButton = document.getElementById("backToMainButton");
+      const backToMainButton2 = document.getElementById("backToMainButton2");
+      const lunchTable = document.getElementById("lunchTable");
+
+      // 일주일 급식 정보
+
+      const csvData = `8월21일,8월22일,8월23일,8월24일,8월25일
 현미밥,보리밥,스팸주먹밥,보리밥,현미밥
 쇠고기무국,뼈없는감자탕,김치말이냉국수,시래기된장국,닭곰탕당면사리
 갈비만두,부추겉절이,아삭고추된장무침,매운돼지갈비찜,오이무침
@@ -186,45 +224,54 @@ function updateCountdown() {
 콘치즈닭갈비,석박지,깍두기,사각어묵볶음,석박지
 포기김치,식혜,꼬마크로플,포기김치,박카스젤리`;
 
-    // CSV 데이터로 급식 표 채우기
-    function fillLunchTableWithCSVData(data) {
-      const rows = data.split('\n');
-      for (let i = 0; i < rows.length; i++) {
-        const columns = rows[i].split(',');
-        const row = document.createElement('tr');
-        for (let j = 0; j < columns.length; j++) {
-          const cell = document.createElement(i === 0 ? 'th' : 'td');
-          cell.innerHTML = columns[j]; // HTML 내용을 그대로 표시
-          row.appendChild(cell);
-        }
-        if (i === 0) {
-          const headerRow = lunchTable.querySelector('tr:first-child');
-          headerRow.parentNode.insertBefore(row, headerRow.nextSibling);
-        } else {
-          lunchTable.appendChild(row);
+      // CSV 데이터로 급식 표 채우기
+      function fillLunchTableWithCSVData(data) {
+        const rows = data.split("\n");
+        for (let i = 0; i < rows.length; i++) {
+          const columns = rows[i].split(",");
+          const row = document.createElement("tr");
+          for (let j = 0; j < columns.length; j++) {
+            const cell = document.createElement(i === 0 ? "th" : "td");
+            cell.innerHTML = columns[j]; // HTML 내용을 그대로 표시
+            row.appendChild(cell);
+          }
+          if (i === 0) {
+            const headerRow = lunchTable.querySelector("tr:first-child");
+            headerRow.parentNode.insertBefore(row, headerRow.nextSibling);
+          } else {
+            lunchTable.appendChild(row);
+          }
         }
       }
-    }
 
-    fillLunchTableWithCSVData(csvData);
+      fillLunchTableWithCSVData(csvData);
 
-    showLunchButton.addEventListener("click", () => {
-      examsPage.style.display = "none";
-      lunchPage.style.display = "block";
-    });
+      showLunchButton.addEventListener("click", () => {
+        examsPage.style.display = "none";
+        schedulePage.style.display = "none";
+        lunchPage.style.display = "block";
+      });
 
-    showExamsButton.addEventListener("click", () => {
-      lunchPage.style.display = "none";
-      examsPage.style.display = "block";
-    });
+      showExamsButton.addEventListener("click", () => {
+        lunchPage.style.display = "none";
+        schedulePage.style.display = "none";
+        examsPage.style.display = "block";
+      });
 
-    backToMainButton.addEventListener("click", () => {
-      lunchPage.style.display = "none";
-    });
+      showScheduleButton.addEventListener("click", () => {
+        lunchPage.style.display = "none";
+        examsPage.style.display = "none";
+        schedulePage.style.display = "block";
+      });
 
-    backToMainButton2.addEventListener("click", () => {
-      examsPage.style.display = "none";
-    });
-  </script>
-</body>
+      backToMainButton.addEventListener("click", () => {
+        lunchPage.style.display = "none";
+      });
+
+      backToMainButton2.addEventListener("click", () => {
+        examsPage.style.display = "none";
+      });
+    </script>
+  </body>
 </html>
+
