@@ -211,7 +211,6 @@
       </table>
       <button class="button" id="backToMainButton2">메인으로 돌아가기</button>
     </div>
-
     <script>
       // 디데이 날짜 설정 (YYYY-MM-DD 형식)
       const dDayDate = new Date("2023-10-16T00:00:00+09:00");
@@ -225,31 +224,21 @@
         return daysLeft;
       }
 
-      function calculateNewCountdown(targetDate) {
-        const currentDate = new Date();
-        const timeDifference = targetDate - currentDate;
-        const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // 올림으로 변경
-        return daysLeft;
-      }
-
       // 초기 로드시 디데이 표시 업데이트
       function updateCountdown() {
         const daysLeft = calculateCountdown(dDayDate);
         const bigCountdown = document.getElementById("bigCountdown");
         bigCountdown.textContent =
           "D-" + (daysLeft >= 0 ? daysLeft.toString().padStart(2, "0") : "00");
-        const smallTitle = document.getElementById("smallTitle");
       }
 
       function updateNewCountdown() {
-        const newDaysLeft = calculateNewCountdown(newDDayDate);
+        const newDaysLeft = calculateCountdown(newDDayDate);
         const newBigCountdown = document.getElementById("newBigCountdown");
         newBigCountdown.textContent =
           "D-" + (newDaysLeft >= 0 ? newDaysLeft.toString().padStart(2, "0") : "00");
-        const newSmallTitle = document.getElementById("newSmallTitle");
       }
 
-      // 요일 목록
       const daysOfWeek = ["월", "화", "수", "목", "금"];
 
       // 오늘의 날짜 표시 업데이트
@@ -287,12 +276,13 @@
       // 일주일 급식 정보
 
       const csvData = `9월 18일,9월 19일,9월 20일,9월 21일,9월 22일
-보리밥,짜계치덮밥 ,중화제육비빔면,보리밥,현미밥
+보리밥,짜계치덮밥,중화제육비빔면,보리밥,현미밥
 소고기된장찌개,김치콩나물국,추가밥,경상도식쇠고기무국,참치김치찌개
 춘천닭갈비,비건만두,깍둑단무지,볼어묵간장조림,비빔막국수
 포기김치,진미채야채무침,포기김치,콩나물김가루무침,부추겉절이
 타코야끼,깍두기,우리밀로만든코코아와플,제육볶음,대패마늘삼겹살
-깻잎무쌈,카프리썬,케이준치킨샐러드,포기김치,포기김치
+깻잎무쌈,카프리썬,케이준치킨샐러드,포기김치,포기김치`;
+
 
       // CSV 데이터로 급식 표 채우기
       function fillLunchTableWithCSVData(data) {
@@ -343,4 +333,4 @@
       });
     </script>
   </body>
-</html>
+</html> 
