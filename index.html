@@ -62,8 +62,9 @@
   </tr>
 </table>
 
-    <button class="button" id="showScheduleButton">2-4 시간표(준비중)</button>
-    <button class="button" id="showLunchButton">이번주 식단표</button>
+    <button class="button" id="showScheduleButton">2-4 시간표</button>
+    <button class="button" id="showLunchButton">이번주 중식</button>
+    <button class="button" id="showDinnerButton">이번주 석식</button>
     <button class="button" id="showExamsButton">수행평가 목록</button>
     
     
@@ -139,7 +140,7 @@
     </div>
 
     <div class="subpage-content" id="lunchPage">
-      <h2>이번주 식단표 (점심)</h2>
+      <h2>이번주 중식표</h2>
       <table id="lunchTable">
         <!-- 급식 정보 행 -->
         <tr id="mealRow">
@@ -147,6 +148,17 @@
         </tr>
       </table>
       <button class="button" id="backToMainButton">메인으로 돌아가기</button>
+    </div>
+
+    <div class="subpage-content" id="dinnerPage">
+      <h2>이번주 석식표</h2>
+      <table id="dinnerTable">
+        <!-- 석식 정보 행 -->
+        <tr id="dinnerRow">
+          <!-- 여기에 석식 정보가 들어갈 셀 -->
+        </tr>
+      </table>
+      <button class="button" id="backToMainButton3">메인으로 돌아가기</button>
     </div>
 
     <div class="subpage-content" id="examsPage">
@@ -303,6 +315,55 @@
           }
         }
       }
+
+      const showDinnerButton = document.getElementById("showDinnerButton");
+const dinnerPage = document.getElementById("dinnerPage");
+const dinnerTable = document.getElementById("dinnerTable");
+const backToMainButton3 = document.getElementById("backToMainButton3");
+
+// 이번주 석식 정보
+const dinnerCSVData = `9월 18일,9월 19일,9월 20일,9월 21일,9월 22일
+김가루주먹밥,콩나물버섯밥양념장,석식없음,스팸장볶음밥,매콤잡채덮밥
+로제소스스파게티,순두부김치국,,김가루계란후라이,계란파국
+깍두기,아삭고추된장무침,,어묵국,무말랭이무침
+델몬트파인애플드링크,데리야끼갈릭미트볼,,치커리사과무침,탕수육소스
+마늘빵,깍두기,,포기김치,포기김치
+양상추샐러드참깨드레싱,망고씨주스,,초코파이,비피더스`;
+
+// CSV 데이터로 석식 표 채우기
+function fillDinnerTableWithCSVData(data) {
+  const rows = data.split("\n");
+  for (let i = 0; i < rows.length; i++) {
+    const columns = rows[i].split(",");
+    const row = document.createElement("tr");
+    for (let j = 0; j < columns.length; j++) {
+      const cell = document.createElement(i === 0 ? "th" : "td");
+      cell.innerHTML = columns[j]; // HTML 내용을 그대로 표시
+      row.appendChild(cell);
+    }
+    if (i === 0) {
+      const headerRow = dinnerTable.querySelector("tr:first-child");
+      headerRow.parentNode.insertBefore(row, headerRow.nextSibling);
+    } else {
+      dinnerTable.appendChild(row);
+    }
+  }
+}
+
+fillDinnerTableWithCSVData(dinnerCSVData);
+
+// '이번주 석식' 버튼 클릭 시 석식 페이지 표시
+showDinnerButton.addEventListener("click", () => {
+  lunchPage.style.display = "none";
+  examsPage.style.display = "none";
+  schedulePage.style.display = "none";
+  dinnerPage.style.display = "block";
+});
+
+// '메인으로 돌아가기' 버튼 클릭 시 석식 페이지 숨김
+backToMainButton3.addEventListener("click", () => {
+  dinnerPage.style.display = "none";
+});
 
       fillLunchTableWithCSVData(csvData);
 
