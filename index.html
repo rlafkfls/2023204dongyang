@@ -172,17 +172,17 @@
         </tr>
         <tr>
           <td class="dark-background">국어</td>
-          <td>독후감 작성</td>
-          <td>2023-10-30</td>
+          <td></td>
+          <td>2023-XX-XX</td>
         </tr>
         <tr>
           <td class="dark-background">영어</td>
-          <td>활동 보고서<br/>듣기 평가</td>
-          <td>~ 2023-10-04 06:00 AM<br/>2023-10-30</td>
+          <td>듣기 평가</td>
+          <td>2023-10-30</td>
         </tr>
         <tr>
           <td class="dark-background">수학</td>
-          <td>/td>
+          <td></td>
           <td>2023-XX-XX</td>
         </tr>
         <tr>
@@ -192,8 +192,8 @@
         </tr>
         <tr>
           <td class="dark-background">화학</td>
-          <td>짧은 글</td>
-          <td>2023-10-10</td>
+          <td></td>
+          <td>2023-XX-XX</td>
         </tr>
         <tr>
           <td class="dark-background">생명과학</td>
@@ -207,18 +207,18 @@
         </tr>
         <tr>
           <td class="dark-background">프로그래밍</td>
+          <td>코드 작성</td>
+          <td>2023-09-12(A)<br/>2023-09-11(B)<br/>2023-09-12(C)</td>
+        </tr>
+        <tr>
+          <td class="dark-background">데이터과학과<br />머신러닝</td>
           <td></td>
           <td>2023-XX-XX</td>
         </tr>
         <tr>
-          <td class="dark-background">데이터과학과<br />머신러닝</td>
-          <td>코드 수행</td>
-          <td>2023-09-26</td>
-        </tr>
-        <tr>
           <td class="dark-background">일본어</td>
           <td>가타카나 쓰기</td>
-          <td>~2023-10-31</td>
+          <td>2023-10-31</td>
         </tr>
       </table>
       <button class="button" id="backToMainButton2">메인으로 돌아가기</button>
@@ -287,13 +287,13 @@
 
       // 일주일 급식 정보
 
-      const csvData = `9월 18일,9월 19일,9월 20일,9월 21일,9월 22일
-보리밥,짜계치덮밥,중화제육비빔면,보리밥,현미밥
-소고기된장찌개,김치콩나물국,추가밥,경상도식쇠고기무국,참치김치찌개
-춘천닭갈비,비건만두,깍둑단무지,볼어묵간장조림,비빔막국수
-포기김치,진미채야채무침,포기김치,콩나물김가루무침,부추겉절이
-타코야끼,깍두기,우리밀로만든코코아와플,제육볶음,대패마늘삼겹살
-깻잎무쌈,카프리썬,케이준치킨샐러드,포기김치,포기김치`;
+      const csvData = `9월 25일,9월 26일,9월 27일,9월 28일,9월 29일
+      백미밥,김밥볶음밥,꽁보리밥고추장,추석연휴,
+들깨미역국,팽이버섯된장국,칼국수,,
+등뼈김치찜,밀떡볶이,갈비만두,,
+오이무침,포기김치,콩나물/무생채/애호박,,
+깍두기,순대,포기김치,,
+초코칩쿠키,후레쉬베리,단무지/쥬시쿨,,`;
 
 
       // CSV 데이터로 급식 표 채우기
@@ -322,13 +322,14 @@ const dinnerTable = document.getElementById("dinnerTable");
 const backToMainButton3 = document.getElementById("backToMainButton3");
 
 // 이번주 석식 정보
-const dinnerCSVData = `9월 18일,9월 19일,9월 20일,9월 21일,9월 22일
-김가루주먹밥,콩나물버섯밥양념장,석식없음,스팸장볶음밥,매콤잡채덮밥
-로제소스스파게티,순두부김치국,,김가루계란후라이,계란파국
-깍두기,아삭고추된장무침,,어묵국,무말랭이무침
-델몬트파인애플드링크,데리야끼갈릭미트볼,,치커리사과무침,탕수육소스
-마늘빵,깍두기,,포기김치,포기김치
-양상추샐러드참깨드레싱,망고씨주스,,초코파이,비피더스`;
+const dinnerCSVData = `월,화,수,목,금
+9월 25일,9월 26일,9월 27일,9월 28일,9월 29일
+동양스밥버거,간장달걀비빔밥,석식없음,,
+김치어묵우동,콩나물국,,,
+단무지부추무침,청경채나물,,,
+소떡소떡,멕시칸치킨커틀렛,,,
+포기김치,포기김치,,,
+딸기우유,레몬에이드,,,`;
 
 // CSV 데이터로 석식 표 채우기
 function fillDinnerTableWithCSVData(data) {
