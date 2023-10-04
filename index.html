@@ -41,11 +41,18 @@
       td.dark-background {
         background-color: #d5d5d5;
       }
+      .no-border-table {
+      border-collapse: collapse;
+    }
+    .no-border-table td {
+      border: 1px solid rgb(255, 255, 255);
+      padding: 10px;
+    }
     </style>
   </head>
   <body>
     <h1 class="main-title">2023년 동양고등학교 2학년 4반 정보 웹사이트</h1>
-    <table style='filter: Alpha(Opacity=100); border-collapse: collapse; border: none;'>
+    <table class="no-border-table">
   <tr>
     <td>
       <div id="countdownContainer">
@@ -61,13 +68,23 @@
     </td>
   </tr>
 </table>
+    <div class="button-container">
+    <button class="button" id="showMidexamButton">★ 중간고사 시간표 및 범위</button>
+      <div class="horizontal-buttons"><button class="button" id="showScheduleButton">2-4 시간표</button>
+        <button class="button" id="showLunchButton">이번주 중식</button>
+        <button class="button" id="showDinnerButton">이번주 석식</button>
+        <button class="button" id="showExamsButton">수행평가 목록</button>
+      </div>
+    </div>
+    
+    
+    <div class="subpage-content" id="midexamPage">
 
-    <button class="button" id="showScheduleButton">2-4 시간표</button>
-    <button class="button" id="showLunchButton">이번주 중식</button>
-    <button class="button" id="showDinnerButton">이번주 석식</button>
-    <button class="button" id="showExamsButton">수행평가 목록</button>
-    
-    
+      <img src="KakaoTalk_20230926_081528379.png" alt="중간고사 시간표 및 범위" style="max-width: 100%; max-height: 500px;">
+
+      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
+    </div>   
+
     <div class="subpage-content" id="schedulePage">
       <h2>2-4 시간표</h2>
       <table id="scheduleTable">
@@ -158,7 +175,7 @@
           <!-- 여기에 석식 정보가 들어갈 셀 -->
         </tr>
       </table>
-      <button class="button" id="backToMainButton3">메인으로 돌아가기</button>
+      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
     </div>
 
     <div class="subpage-content" id="examsPage">
@@ -172,8 +189,8 @@
         </tr>
         <tr>
           <td class="dark-background">국어</td>
-          <td></td>
-          <td>2023-XX-XX</td>
+          <td>독후감 작성</td>
+          <td>2023-10-30</td>
         </tr>
         <tr>
           <td class="dark-background">영어</td>
@@ -187,18 +204,18 @@
         </tr>
         <tr>
           <td class="dark-background">물리학</td>
-          <td></td>
-          <td>2023-XX-XX</td>
+          <td>실험 수행</td>
+          <td>2023-10-05</td>
         </tr>
         <tr>
           <td class="dark-background">화학</td>
-          <td></td>
-          <td>2023-XX-XX</td>
+          <td>화학 글쓰기<br/>프린트 검사</td>
+          <td>2023-10-05<br/>2023-10-12</td>
         </tr>
         <tr>
           <td class="dark-background">생명과학</td>
-          <td></td>
-          <td>2023-XX-XX</td>
+          <td>독후감</td>
+          <td>2023-11-05 11:00:00 PM(리로 업로드 마감)<br/>2023-11-07(작성)</td>
         </tr>
         <tr>
           <td class="dark-background">심화수학</td>
@@ -207,25 +224,25 @@
         </tr>
         <tr>
           <td class="dark-background">프로그래밍</td>
-          <td>코드 작성</td>
-          <td>2023-09-12(A)<br/>2023-09-11(B)<br/>2023-09-12(C)</td>
+          <td></td>
+          <td>2023-XX-XX</td>
         </tr>
         <tr>
-          <td class="dark-background">데이터과학과<br />머신러닝</td>
+          <td class="dark-background">데이터과학과<br/>머신러닝</td>
           <td></td>
           <td>2023-XX-XX</td>
         </tr>
         <tr>
           <td class="dark-background">일본어</td>
           <td>가타카나 쓰기</td>
-          <td>2023-10-31</td>
+          <td>~2023-10-31</td>
         </tr>
       </table>
-      <button class="button" id="backToMainButton2">메인으로 돌아가기</button>
+      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
     </div>
     <script>
       // 디데이 날짜 설정 (YYYY-MM-DD 형식)
-      const dDayDate = new Date("2023-10-16T00:00:00+09:00");
+      const dDayDate = new Date("2023-10-17T00:00:00+09:00");
       const newDDayDate = new Date("2023-12-19T00:00:00+09:00");
 
       // 디데이 계산 함수
@@ -276,24 +293,26 @@
       updateTodayDate();
 
       const showLunchButton = document.getElementById("showLunchButton");
+      const showMidexamButton = document.getElementById("showMidexamButton");
       const showExamsButton = document.getElementById("showExamsButton");
       const showScheduleButton = document.getElementById("showScheduleButton");
       const lunchPage = document.getElementById("lunchPage");
+      const midexamPage = document.getElementById("midexamPage");
       const examsPage = document.getElementById("examsPage");
       const schedulePage = document.getElementById("schedulePage");
       const backToMainButton = document.getElementById("backToMainButton");
-      const backToMainButton2 = document.getElementById("backToMainButton2");
       const lunchTable = document.getElementById("lunchTable");
+      
 
-      // 일주일 급식 정보
+      // 일주일 점심 정보
 
-      const csvData = `9월 25일,9월 26일,9월 27일,9월 28일,9월 29일
-      백미밥,김밥볶음밥,꽁보리밥고추장,추석연휴,
-들깨미역국,팽이버섯된장국,칼국수,,
-등뼈김치찜,밀떡볶이,갈비만두,,
-오이무침,포기김치,콩나물/무생채/애호박,,
-깍두기,순대,포기김치,,
-초코칩쿠키,후레쉬베리,단무지/쥬시쿨,,`;
+      const LunchcsvData = `10월2일,10월3일,10월4일,10월5일,10월6일
+임시공휴일,개천절,스팸주먹밥,대패삼겹쌈장비빔밥,현미밥
+,,잔치국수,부추계란국,스팸고추장찌개
+,,배추겉절이,미역줄기맛살볶음,춘천닭갈비
+,,닭다리오븐구이,한입불고기피자,포기김치
+,,요플레,포기김치,쁘띠첼
+,,,토레타,깻잎무쌈`;
 
 
       // CSV 데이터로 급식 표 채우기
@@ -316,20 +335,35 @@
         }
       }
 
-      const showDinnerButton = document.getElementById("showDinnerButton");
-const dinnerPage = document.getElementById("dinnerPage");
-const dinnerTable = document.getElementById("dinnerTable");
-const backToMainButton3 = document.getElementById("backToMainButton3");
 
+
+function fillDinnerTableWithCSVData(data) {
+        const rows = data.split("\n");
+        for (let i = 0; i < rows.length; i++) {
+          const columns = rows[i].split(",");
+          const row = document.createElement("tr");
+          for (let j = 0; j < columns.length; j++) {
+            const cell = document.createElement(i === 0 ? "th" : "td");
+            cell.innerHTML = columns[j]; // HTML 내용을 그대로 표시
+            row.appendChild(cell);
+          }
+          if (i === 0) {
+            const headerRow = lunchTable.querySelector("tr:first-child");
+            headerRow.parentNode.insertBefore(row, headerRow.nextSibling);
+          } else {
+            lunchTable.appendChild(row);
+          }
+        }
+      }
 // 이번주 석식 정보
 const dinnerCSVData = `월,화,수,목,금
-9월 25일,9월 26일,9월 27일,9월 28일,9월 29일
-동양스밥버거,간장달걀비빔밥,석식없음,,
-김치어묵우동,콩나물국,,,
-단무지부추무침,청경채나물,,,
-소떡소떡,멕시칸치킨커틀렛,,,
-포기김치,포기김치,,,
-딸기우유,레몬에이드,,,`;
+10월2일,10월3일,10월4일,10월5일,10월6일
+,,석식없음,콩나물국,유부주먹밥
+,,,닭갈비덮밥,온메밀국수
+,,,건새우마늘쫑볶음,마카로니샐러드
+,,,감자핫도그,고구마치즈돈까스
+,,,포기김치,깍두기
+,,,아이스바,레몬에이드`;
 
 // CSV 데이터로 석식 표 채우기
 function fillDinnerTableWithCSVData(data) {
@@ -353,46 +387,57 @@ function fillDinnerTableWithCSVData(data) {
 
 fillDinnerTableWithCSVData(dinnerCSVData);
 
-// '이번주 석식' 버튼 클릭 시 석식 페이지 표시
-showDinnerButton.addEventListener("click", () => {
-  lunchPage.style.display = "none";
-  examsPage.style.display = "none";
-  schedulePage.style.display = "none";
-  dinnerPage.style.display = "block";
-});
 
-// '메인으로 돌아가기' 버튼 클릭 시 석식 페이지 숨김
-backToMainButton3.addEventListener("click", () => {
-  dinnerPage.style.display = "none";
-});
+      fillLunchTableWithCSVData(LunchcsvData);
 
-      fillLunchTableWithCSVData(csvData);
+      showMidexamButton.addEventListener("click", () => {
+        lunchPage.style.display = "none";
+        examsPage.style.display = "none";
+        schedulePage.style.display = "none";
+        dinnerPage.style.display = "none";
+        midexamPage.style.display = "block";
+      });
 
       showLunchButton.addEventListener("click", () => {
         examsPage.style.display = "none";
         schedulePage.style.display = "none";
         lunchPage.style.display = "block";
+        dinnerPage.style.display = "none";
+        midexamPage.style.display = "none";
       });
 
       showExamsButton.addEventListener("click", () => {
         lunchPage.style.display = "none";
         schedulePage.style.display = "none";
         examsPage.style.display = "block";
+        dinnerPage.style.display = "none";
+        midexamPage.style.display = "none";
       });
 
       showScheduleButton.addEventListener("click", () => {
         lunchPage.style.display = "none";
         examsPage.style.display = "none";
         schedulePage.style.display = "block";
+        dinnerPage.style.display = "none";
+        midexamPage.style.display = "none";
+      });
+
+      showDinnerButton.addEventListener("click", () => {
+        lunchPage.style.display = "none";
+        examsPage.style.display = "none";
+        schedulePage.style.display = "none";
+        dinnerPage.style.display = "block";
+        midexamPage.style.display = "none";
       });
 
       backToMainButton.addEventListener("click", () => {
         lunchPage.style.display = "none";
-      });
-
-      backToMainButton2.addEventListener("click", () => {
         examsPage.style.display = "none";
+        schedulePage.style.display = "none";
+        dinnerPage.style.display = "none";
+        midexamPage.style.display = "none";
       });
+      
     </script>
   </body>
 </html> 
