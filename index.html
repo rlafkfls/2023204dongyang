@@ -56,7 +56,7 @@
   <tr>
     <td>
       <div id="countdownContainer">
-        <p id="smallTitle">중간고사까지</p>
+        <p id="smallTitle">기말고사까지</p>
         <p id="bigCountdown" style="font-size: 32px; font-weight: bold">D-00</p>
       </div>
     </td>
@@ -69,8 +69,11 @@
   </tr>
 </table>
     <div class="button-container">
-    <button class="button" id="showMidexamButton">★ 중간고사 시간표 및 범위</button>
-      <div class="horizontal-buttons"><button class="button" id="showScheduleButton">2-4 시간표</button>
+    <button class="button" id="showshdButton">★ 소규모 테마여행 일정표</button>
+    <button class="button" id="showbusButton">★ 소규모 테마여행 버스 배정</button>
+    <button class="button" id="showsleepButton">★ 소규모 테마여행 숙소 배정</button>
+    <div class="horizontal-buttons">
+      <button class="button" id="showScheduleButton">2-4 시간표</button>
         <button class="button" id="showLunchButton">이번주 중식</button>
         <button class="button" id="showDinnerButton">이번주 석식</button>
         <button class="button" id="showExamsButton">수행평가 목록</button>
@@ -78,12 +81,24 @@
     </div>
     
     
-    <div class="subpage-content" id="midexamPage">
+    <div class="subpage-content" id="shdPage">
 
-      <img src="2023학년도 2학기 중간고사 시간표 및 범위2학년.png" alt="중간고사 시간표 및 범위" style="max-width: 100%; max-height: 500px;">
+      <img src="수학여행 일정표.png" style="max-width: 100%; max-height: 500px;">
+
+      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
+    </div>
+    <div class="subpage-content" id="busPage">
+
+      <img src="수학여행 버스.png" style="max-width: 100%; max-height: 500px;">
 
       <button class="button" id="backToMainButton">메인으로 돌아가기</button>
     </div>   
+    <div class="subpage-content" id="sleepPage">
+
+      <img src="수학여행 숙소.png" style="max-width: 100%; max-height: 500px;">
+
+      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
+    </div>      
 
     <div class="subpage-content" id="schedulePage">
       <h2>2-4 시간표</h2>
@@ -242,7 +257,7 @@
     </div>
     <script>
       // 디데이 날짜 설정 (YYYY-MM-DD 형식)
-      const dDayDate = new Date("2023-10-17T00:00:00+09:00");
+      const dDayDate = new Date("2023-12-11T00:00:00+09:00");
       const newDDayDate = new Date("2023-12-19T00:00:00+09:00");
 
       // 디데이 계산 함수
@@ -293,11 +308,15 @@
       updateTodayDate();
 
       const showLunchButton = document.getElementById("showLunchButton");
-      const showMidexamButton = document.getElementById("showMidexamButton");
+      const showshdButton = document.getElementById("showshdButton");
+      const showbusButton = document.getElementById("showbusButton");
+      const showsleepButton = document.getElementById("showsleepButton");
       const showExamsButton = document.getElementById("showExamsButton");
       const showScheduleButton = document.getElementById("showScheduleButton");
       const lunchPage = document.getElementById("lunchPage");
-      const midexamPage = document.getElementById("midexamPage");
+      const shdPage = document.getElementById("shdPage");
+      const busPage = document.getElementById("busPage");
+      const sleepPage = document.getElementById("sleepPage");
       const examsPage = document.getElementById("examsPage");
       const schedulePage = document.getElementById("schedulePage");
       const backToMainButton = document.getElementById("backToMainButton");
@@ -390,12 +409,34 @@ fillDinnerTableWithCSVData(dinnerCSVData);
 
       fillLunchTableWithCSVData(LunchcsvData);
 
-      showMidexamButton.addEventListener("click", () => {
+      showshdButton.addEventListener("click", () => {
         lunchPage.style.display = "none";
         examsPage.style.display = "none";
         schedulePage.style.display = "none";
         dinnerPage.style.display = "none";
-        midexamPage.style.display = "block";
+        shdPage.style.display = "block";
+        busPage.style.display = "none";
+        sleepPage.style.display = "none";
+      });
+
+      showbusButton.addEventListener("click", () => {
+        lunchPage.style.display = "none";
+        examsPage.style.display = "none";
+        schedulePage.style.display = "none";
+        dinnerPage.style.display = "none";
+        shdPage.style.display = "none";
+        busPage.style.display = "block";
+        sleepPage.style.display = "none";
+      });
+
+      showsleepButton.addEventListener("click", () => {
+        lunchPage.style.display = "none";
+        examsPage.style.display = "none";
+        schedulePage.style.display = "none";
+        dinnerPage.style.display = "none";
+        shdPage.style.display = "none";
+        busPage.style.display = "none";
+        sleepPage.style.display = "block";
       });
 
       showLunchButton.addEventListener("click", () => {
@@ -403,7 +444,9 @@ fillDinnerTableWithCSVData(dinnerCSVData);
         schedulePage.style.display = "none";
         lunchPage.style.display = "block";
         dinnerPage.style.display = "none";
-        midexamPage.style.display = "none";
+        shdPage.style.display = "none";
+        busPage.style.display = "none";
+        sleepPage.style.display = "none";
       });
 
       showExamsButton.addEventListener("click", () => {
@@ -411,7 +454,9 @@ fillDinnerTableWithCSVData(dinnerCSVData);
         schedulePage.style.display = "none";
         examsPage.style.display = "block";
         dinnerPage.style.display = "none";
-        midexamPage.style.display = "none";
+        shdPage.style.display = "none";
+        busPage.style.display = "none";
+        sleepPage.style.display = "none";
       });
 
       showScheduleButton.addEventListener("click", () => {
@@ -419,7 +464,9 @@ fillDinnerTableWithCSVData(dinnerCSVData);
         examsPage.style.display = "none";
         schedulePage.style.display = "block";
         dinnerPage.style.display = "none";
-        midexamPage.style.display = "none";
+        shdPage.style.display = "none";
+        busPage.style.display = "none";
+        sleepPage.style.display = "none";
       });
 
       showDinnerButton.addEventListener("click", () => {
@@ -427,7 +474,9 @@ fillDinnerTableWithCSVData(dinnerCSVData);
         examsPage.style.display = "none";
         schedulePage.style.display = "none";
         dinnerPage.style.display = "block";
-        midexamPage.style.display = "none";
+        shdPage.style.display = "none";
+        busPage.style.display = "none";
+        sleepPage.style.display = "none";
       });
 
       backToMainButton.addEventListener("click", () => {
@@ -435,9 +484,11 @@ fillDinnerTableWithCSVData(dinnerCSVData);
         examsPage.style.display = "none";
         schedulePage.style.display = "none";
         dinnerPage.style.display = "none";
-        midexamPage.style.display = "none";
+        busPage.style.display = "none";
+        sleepPage.style.display = "none";
+        shdPage.style.display = "none";
       });
       
     </script>
   </body>
-</html> 
+</html>
