@@ -1,444 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2023년 동양고등학교 2학년 4반 정보 웹사이트</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-      }
-      .main-title {
-        font-size: 24px;
-        margin-top: 50px;
-      }
-      .button {
-        display: inline-block;
-        padding: 10px 20px;
-        margin: 20px;
-        background-color: #3498db;
-        color: white;
-        border: none;
-        cursor: pointer;
-      }
-      .subpage-content {
-        display: none;
-        margin-top: 50px;
-      }
-      table {
-        border-collapse: collapse;
-        margin-top: 20px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      table,
-      th,
-      td {
-        border: 1px solid black;
-        padding: 10px; /* 셀 안의 간격을 지정 */
-      }
-      td.dark-background {
-        background-color: #d5d5d5;
-      }
-      .no-border-table {
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2023년 동양고등학교 2학년 4반 정보 웹사이트</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .main-title {
+      font-size: 24px;
+      margin-top: 50px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .subpage-content {
+      display: none;
+      margin-top: 50px;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      padding: 10px;
+      /* 셀 안의 간격을 지정 */
+    }
+
+    td.dark-background {
+      background-color: #d5d5d5;
+    }
+
+    .no-border-table {
       border-collapse: collapse;
     }
+
     .no-border-table td {
       border: 1px solid rgb(255, 255, 255);
       padding: 10px;
     }
-    </style>
-  </head>
-  <body>
-    <h1 class="main-title">2023년 동양고등학교 2학년 4반 정보 웹사이트</h1>
-    <table class="no-border-table">
-  <tr>
-    <td>
-      <div id="countdownContainer">
-        <p id="smallTitle">기말고사까지</p>
-        <p id="bigCountdown" style="font-size: 32px; font-weight: bold">D-00</p>
-      </div>
-    </td>
-    <td>
-      <div id="newCountdownContainer">
-        <p id="newSmallTitle">12월 전국연합학력평가까지</p>
-        <p id="newBigCountdown" style="font-size: 32px; font-weight: bold">D-00</p>
-      </div>
-    </td>
-  </tr>
-</table>
-    <div class="button-container">
-      <button class="button" id="showFinalExamButton">★ 2학기 기말고사 시간표</button>
+  </style>
+</head>
+
+<body>
+  <h1 class="main-title">2023년 동양고등학교 2학년 4반 정보 웹사이트</h1>
+  <table class="no-border-table">
+    <tr>
+      <td>
+        <div id="countdownContainer">
+          <div id="smallTitle">겨울방학식까지</div>
+          <div id="bigCountdown" style="font-size: 32px; font-weight: bold">D-00</div>
+        </div>
+      </td>
+      <td>
+        <div id="newCountdownContainer">
+          <div id="newSmallTitle">수능까지</div>
+          <div id="newBigCountdown" style="font-size: 32px; font-weight: bold">D-00</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div class="button-container">
     <div class="horizontal-buttons">
-      <button class="button" id="showScheduleButton">2-4 시간표</button>
-        <button class="button" id="showLunchButton">이번주 중식</button>
-        <button class="button" id="showDinnerButton">이번주 석식</button>
-        <button class="button" id="showExamsButton">수행평가 목록</button>
-      </div>
+      <button class="button" id="showScheduleButton">2023학년도 학사일정</button>
+      <button class="button" id="showttbButton">2-4 시간표</button>
+      <button class="button" id="showLunchButton">이번주 중식</button>
+      <button class="button" id="showDinnerButton">이번주 석식</button>
+      <button class="button" id="showExamsButton">수행평가 목록</button>
     </div>
+  </div>
 
-    <div class="subpage-content" id="FinalExamPage">
-      <img src="KakaoTalk_20231120_092359214.png" alt="기말고사 시간표 및 범위" style="max-width: 100%; max-height: 500px;">
-      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
-    </div>   
+  <div class="subpage-content" id="timetablePage">
+    <h2>2-4 시간표</h2>
+    <table>
+      <tr>
+        <th></th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+      </tr>
+      <tr>
+        <th>1교시 (8:00~8:50)</th>
+        <th>자율</th>
+        <th>일본어1</th>
+        <th>수학2</th>
+        <th>영어2A</th>
+        <th>영어2A</th>
+      </tr>
+      <tr>
+        <th>2교시 (9:00~9:50)</th>
+        <th>운동A</th>
+        <th>수학2</th>
+        <th>과학교양A</th>
+        <th>과학교양A</th>
+        <th>운동B</th>
+      </tr>
+      <tr>
+        <th>3교시 (10:00~10:50)</th>
+        <th>수학2</th>
+        <th>과학교양A</th>
+        <th>음미선택</th>
+        <th>일본어1</th>
+        <th>과학교양C</th>
+      </tr>
+      <tr>
+        <th>4교시 (11:00~11:50)</th>
+        <th>독서B</th>
+        <th>과학교양C</th>
+        <th>과학교양B</th>
+        <th>과학교양B</th>
+        <th>진로</th>
+      </tr>
+      <tr>
+        <th>5교시 (12:50~13:40)</th>
+        <th>과학교양B</th>
+        <th>영어2A</th>
+        <th>봉사</th>
+        <th>수학2</th>
+        <th>수학2</th>
+      </tr>
+      <tr>
+        <th>6교시 (13:50~14:40)</th>
+        <th>과학교양D</th>
+        <th>독서A</th>
+        <th>동아리</th>
+        <th>과학교양C</th>
+        <th>독서B</th>
+      </tr>
+      <tr>
+        <th>7교시 (14:50~15:40)</th>
+        <th>독서A</th>
+        <th>과학교양D</th>
+        <th></th>
+        <th>과학교양D</th>
+        <th>영어2B</th>
+      </tr>
+    </table>
+    <button class="button" id="backToMainButton">메인으로 돌아가기</button>
+  </div>
 
-    <div class="subpage-content" id="schedulePage">
-      <h2>2-4 시간표</h2>
-      <table id="scheduleTable">
-        <tr>
-          <th></th>
-          <th>월</th>
-          <th>화</th>
-          <th>수</th>
-          <th>목</th>
-          <th>금</th>
-        </tr>
-        <tr>
-          <th>1교시 (8:00~8:50)</th>
-          <th>자율</th>
-          <th>일본어1</th>
-          <th>수학2</th>
-          <th>영어2A</th>
-          <th>영어2A</th>
-        </tr>
-        <tr>
-          <th>2교시 (9:00~9:50)</th>
-          <th>운동A</th>
-          <th>수학2</th>
-          <th>과학교양A</th>
-          <th>과학교양A</th>
-          <th>운동B</th>
-        </tr>
-        <tr>
-          <th>3교시 (10:00~10:50)</th>
-          <th>수학2</th>
-          <th>과학교양A</th>
-          <th>음미선택</th>
-          <th>일본어1</th>
-          <th>과학교양C</th>
-        </tr>
-        <tr>
-          <th>4교시 (11:00~11:50)</th>
-          <th>독서B</th>
-          <th>과학교양C</th>
-          <th>과학교양B</th>
-          <th>과학교양B</th>
-          <th>진로</th>
-        </tr>
-        <tr>
-          <th>5교시 (12:50~13:40)</th>
-          <th>과학교양B</th>
-          <th>영어2A</th>
-          <th>봉사</th>
-          <th>수학2</th>
-          <th>수학2</th>
-        </tr>
-        <tr>
-          <th>6교시 (13:50~14:40)</th>
-          <th>과학교양D</th>
-          <th>독서A</th>
-          <th>동아리</th>
-          <th>과학교양C</th>
-          <th>독서B</th>
-        </tr>
-        <tr>
-          <th>7교시 (14:50~15:40)</th>
-          <th>독서A</th>
-          <th>과학교양D</th>
-          <th></th>
-          <th>과학교양D</th>
-          <th>영어2B</th>
-        </tr>
-      </table>
-      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
-    </div>
-
-    <div class="subpage-content" id="lunchPage">
-      <h2>이번주 중식표</h2>
-      <table id="lunchTable">
-        <!-- 급식 정보 행 -->
-        <tr id="mealRow">
-          <!-- 여기에 급식 정보가 들어갈 셀 -->
-        </tr>
-      </table>
-      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
-    </div>
-
-    <div class="subpage-content" id="dinnerPage">
-      <h2>이번주 석식표</h2>
-      <table id="dinnerTable">
-        <!-- 석식 정보 행 -->
-        <tr id="dinnerRow">
-          <!-- 여기에 석식 정보가 들어갈 셀 -->
-        </tr>
-      </table>
-      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
-    </div>
-
-    <div class="subpage-content" id="examsPage">
-      <h2>수행평가 목록</h2>
-      <table id="examsTable">
-        <!-- 수행평가 테이블 내용 -->
-        <tr>
-          <th>과목</th>
-          <th>수행평가</th>
-          <th>마감일</th>
-        </tr>
-        <tr>
-          <td class="dark-background">국어</td>
-          <td></td>
-          <td>2023-XX-XX</td>
-        </tr>
-        <tr>
-          <td class="dark-background">영어</td>
-          <td></td>
-          <td>2023-XX-XX</td>
-        </tr>
-        <tr>
-          <td class="dark-background">수학</td>
-          <td></td>
-          <td>2023-XX-XX</td>
-        </tr>
-        <tr>
-          <td class="dark-background">물리학</td>
-          <td></td>
-          <td>2023-XX-XX</td>
-        </tr>
-        <tr>
-          <td class="dark-background">화학</td>
-          <td></td>
-          <td>2023-XX-XX</td>
-        </tr>
-        <tr>
-          <td class="dark-background">생명과학</td>
-          <td></td>
-          <td>2023-XX-XX</td>
-        </tr>
-        <tr>
-          <td class="dark-background">심화수학</td>
-          <td>문제해결서술</td>
-          <td>2023-11-30</td>
-        </tr>
-        <tr>
-          <td class="dark-background">프로그래밍</td>
-          <td></td>
-          <td>2023-XX-XX</td>
-        </tr>
-        <tr>
-          <td class="dark-background">데이터과학과<br/>머신러닝</td>
-          <td></td>
-          <td>2023-XX-XX</td>
-        </tr>
-        <tr>
-          <td class="dark-background">일본어</td>
-          <td></td>
-          <td>2023-XX-XX</td>
-        </tr>
-      </table>
-      <button class="button" id="backToMainButton">메인으로 돌아가기</button>
-    </div>
+  <div class="subpage-content" id="lunchPage">
+    <h2>이번주 중식표</h2>
+    <a id="lunch"></a>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
-      // 디데이 날짜 설정 (YYYY-MM-DD 형식)
-      const dDayDate = new Date("2023-12-11T00:00:00+09:00");
-      const newDDayDate = new Date("2023-12-19T00:00:00+09:00");
+      var date = new Date();
+      var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
 
-      // 디데이 계산 함수
-      function calculateCountdown(targetDate) {
-        const currentDate = new Date();
-        const timeDifference = targetDate - currentDate;
-        const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // 올림으로 변경
-        return daysLeft;
-      }
+      var startOfWeek = new Date(today);
+      startOfWeek.setDate(today.getDate() - today.getDay() + (today.getDay() === 0 ? -6 : 1)); // 일요일은 0, 월요일은 1
 
-      // 초기 로드시 디데이 표시 업데이트
-      function updateCountdown() {
-        const daysLeft = calculateCountdown(dDayDate);
-        const bigCountdown = document.getElementById("bigCountdown");
-        bigCountdown.textContent =
-          "D-" + (daysLeft >= 0 ? daysLeft.toString().padStart(2, "0") : "00");
-      }
+      var endOfWeek = new Date(today);
+      endOfWeek.setDate(today.getDate() - today.getDay() + 5); // 금요일
 
-      function updateNewCountdown() {
-        const newDaysLeft = calculateCountdown(newDDayDate);
-        const newBigCountdown = document.getElementById("newBigCountdown");
-        newBigCountdown.textContent =
-          "D-" + (newDaysLeft >= 0 ? newDaysLeft.toString().padStart(2, "0") : "00");
-      }
 
-      const daysOfWeek = ["월", "화", "수", "목", "금"];
+      // startOfWeek과 endOfWeek를 이용하여 원하는 형식으로 날짜를 생성
+      var Today = startOfWeek.getFullYear() + ('0' + (startOfWeek.getMonth() + 1)).slice(-2) + ('0' + startOfWeek.getDate()).slice(-2);
+      var NextWeek = endOfWeek.getFullYear() + ('0' + (endOfWeek.getMonth() + 1)).slice(-2) + ('0' + endOfWeek.getDate()).slice(-2);
 
-      // 오늘의 날짜 표시 업데이트
-      function updateTodayDate() {
-        const todayDateRow = document.querySelector(
-          "#lunchTable tr:first-child"
-        );
-        const today = new Date();
-        const todayIndex = today.getDay(); // 오늘의 요일 인덱스
+      $.ajax({
+        method: "GET",
+        url: "https://open.neis.go.kr/hub/mealServiceDietInfo?",
+        data: {
+          KEY: '148b1aea2e4e4776acb81dae0f790b81',
+          ATPT_OFCDC_SC_CODE: 'B10',
+          SD_SCHUL_CODE: '7010965',
+          type: 'xml',
+          MLSV_FROM_YMD: Today,
+          MLSV_TO_YMD: NextWeek
 
-        // 요일을 표시
-        for (let i = 0; i < daysOfWeek.length; i++) {
-          const cell = document.createElement("th");
-          cell.textContent = daysOfWeek[i];
-          if (i === todayIndex) {
-            cell.classList.add("dark-background");
-          }
-          todayDateRow.appendChild(cell);
         }
-      }
-      updateCountdown();
-      updateNewCountdown();
-      updateTodayDate();
-
-      const showLunchButton = document.getElementById("showLunchButton");
-      const showshdButton = document.getElementById("showshdButton");
-      const showbusButton = document.getElementById("showbusButton");
-      const showsleepButton = document.getElementById("showsleepButton");
-      const showExamsButton = document.getElementById("showExamsButton");
-      const showScheduleButton = document.getElementById("showScheduleButton");
-      const showFinalExamButton = document.getElementById("showFinalExamButton")
-      const lunchPage = document.getElementById("lunchPage");
-      const FinalExamPage = document.getElementById("FinalExamPage");
-      const examsPage = document.getElementById("examsPage");
-      const schedulePage = document.getElementById("schedulePage");
-      const backToMainButton = document.getElementById("backToMainButton");
-      const lunchTable = document.getElementById("lunchTable");
-      
-
-      // 일주일 점심 정보
-
-      const LunchcsvData = `11월 27일,11월 28일,11월 29일,11월 30일,12월 1일
-현미밥,현미밥,후리가케주먹밥,보리밥,백미밥
-뼈없는감자탕,설렁탕당면사리,얼큰돈코츠라멘,팽이버섯된장국,국물닭갈비
-메추리알어묵조림,아삭고추된장무침,부추양파무침,콩나물김가루무침,어묵잡채
-칠리탕수육,에그랑땡케찹,교자찐만두&초간장,제육볶음,스틱김자반
-깍두기,석박지,포기김치,사각어묵볶음,포기김치
-과채믹스쥬스,망고쥬스,제로사이다,포기김치,치즈크림찹쌀떡`;
-
-
-      // CSV 데이터로 급식 표 채우기
-      function fillLunchTableWithCSVData(data) {
-        const rows = data.split("\n");
-        for (let i = 0; i < rows.length; i++) {
-          const columns = rows[i].split(",");
-          const row = document.createElement("tr");
-          for (let j = 0; j < columns.length; j++) {
-            const cell = document.createElement(i === 0 ? "th" : "td");
-            cell.innerHTML = columns[j]; // HTML 내용을 그대로 표시
-            row.appendChild(cell);
+      })
+        .done(function (msg) {
+          console.log(msg);
+          function cleanText(text) {
+            return text.replace(/\(([^)]+)\)/g, '').replace(/[*^]/g, '');
           }
-          if (i === 0) {
-            const headerRow = lunchTable.querySelector("tr:first-child");
-            headerRow.parentNode.insertBefore(row, headerRow.nextSibling);
-          } else {
-            lunchTable.appendChild(row);
+
+          const dateList = []
+          const itemList = []
+          const IsToday = []
+          for (var i = 0; i < 5; i++) {
+            dateList.push($(msg).find('MLSV_YMD').eq(i).text())
           }
-        }
-      }
 
 
-
-function fillDinnerTableWithCSVData(data) {
-        const rows = data.split("\n");
-        for (let i = 0; i < rows.length; i++) {
-          const columns = rows[i].split(",");
-          const row = document.createElement("tr");
-          for (let j = 0; j < columns.length; j++) {
-            const cell = document.createElement(i === 0 ? "th" : "td");
-            cell.innerHTML = columns[j]; // HTML 내용을 그대로 표시
-            row.appendChild(cell);
+          function formatDate(date) {
+            var year = date.getFullYear();
+            var month = ('0' + (date.getMonth() + 1)).slice(-2);
+            var day = ('0' + date.getDate()).slice(-2);
+            return '' + year + month + day;
           }
-          if (i === 0) {
-            const headerRow = lunchTable.querySelector("tr:first-child");
-            headerRow.parentNode.insertBefore(row, headerRow.nextSibling);
-          } else {
-            lunchTable.appendChild(row);
+          var currentDate = new Date(startOfWeek);
+          while (currentDate <= endOfWeek) {
+            IsToday.push(formatDate(currentDate));
+            currentDate.setDate(currentDate.getDate() + 1); // 다음 날짜로 이동
+
+          } //여기까지 바꾸기
+
+          for (var i = 0; i < 5; i++) {
+            var originalText = $(msg).find('DDISH_NM').eq(i).text();
+            var cleanedText = cleanText(originalText);
+            itemList.push(cleanedText.split('<br/>').filter(Boolean));
           }
-        }
-      }
-// 이번주 석식 정보
-const dinnerCSVData = `월,화,수,목,금
-백미밥,장조림버터비빔밥,석식없음,백미밥,보리밥
-들깨미역국,김치콩나물국,,크림스프,황태해장국
-파채겉절이,치커리사과무침,,등심돈까스소스,궁중떡볶이
-대패마늘삼겹살,소떡소떡,,포기김치,돼지고기고추장양념구이
-포기김치,포기김치,,코코팜,포기김치
-리얼초코프리첼,플리또주스,,시리얼양배추샐러드,토레타`;
-
-// CSV 데이터로 석식 표 채우기
-function fillDinnerTableWithCSVData(data) {
-  const rows = data.split("\n");
-  for (let i = 0; i < rows.length; i++) {
-    const columns = rows[i].split(",");
-    const row = document.createElement("tr");
-    for (let j = 0; j < columns.length; j++) {
-      const cell = document.createElement(i === 0 ? "th" : "td");
-      cell.innerHTML = columns[j]; // HTML 내용을 그대로 표시
-      row.appendChild(cell);
-    }
-    if (i === 0) {
-      const headerRow = dinnerTable.querySelector("tr:first-child");
-      headerRow.parentNode.insertBefore(row, headerRow.nextSibling);
-    } else {
-      dinnerTable.appendChild(row);
-    }
-  }
-}
-
-fillDinnerTableWithCSVData(dinnerCSVData);
 
 
-      fillLunchTableWithCSVData(LunchcsvData);
 
-      
-      showFinalExamButton.addEventListener("click", () => {
-        FinalExamPage.style.display = "block"
-        examsPage.style.display = "none";
-        schedulePage.style.display = "none";
-        lunchPage.style.display = "none";
-        dinnerPage.style.display = "none";
-      });
+          for (var i = 0; i < 5; i++) {
+            var Islunch = $(msg).find('MMEAL_SC_NM').eq(i).text();
+            if (Islunch === '석식') {
+              dateList[i] = ''
+              itemList.splice(i, 1, [])
+            }
+          }
 
-      showLunchButton.addEventListener("click", () => {
-        FinalExamPage.style.display = "none"
-        examsPage.style.display = "none";
-        schedulePage.style.display = "none";
-        lunchPage.style.display = "block";
-        dinnerPage.style.display = "none";
-      });
+          const lunchList = []
 
-      showExamsButton.addEventListener("click", () => {
-        FinalExamPage.style.display = "none"
-        lunchPage.style.display = "none";
-        schedulePage.style.display = "none";
-        examsPage.style.display = "block";
-        dinnerPage.style.display = "none";
-      });
+          for (var i = 0; i < 5; i++) {
+            var Islunch = $(msg).find('MMEAL_SC_NM').eq(i).text();
+            for (var j = 0; j < 5; j++) {
+              if (dateList[j] === IsToday[i]) {
+                if (dateList[j] === '') {
+                  continue;
+                }
+                else if (Islunch === '석식') {
+                  continue;
+                }
+                lunchList[i] = itemList[j]
+              }
+              if (lunchList[i] === undefined) {
+                lunchList[i] = []
+              }
+            }
+          }
+          $("#lunch").append('<table>')
+          $("#lunch").append("<tr>" + "<th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>" + "</tr>")
+          $("#lunch").append("<tr>")
+          for (var i = 0; i < 5; i++) {
+            $("#lunch").append("<th>" + IsToday[i] + "</th>")
+          }
+          $("#lunch").append("</tr>")
 
-      showScheduleButton.addEventListener("click", () => {
-        FinalExamPage.style.display = "none"
-        lunchPage.style.display = "none";
-        examsPage.style.display = "none";
-        schedulePage.style.display = "block";
-        dinnerPage.style.display = "none";
-      });
+          for (var i = 0; i < 6; i++) {
+            $("#lunch").append("<tr>")
+            for (var j = 0; j < 5; j++) {
+              if (lunchList[j][i] === undefined && i === 0) {
+                lunchList[j][i] = '급식 없음'
+              }
+              else if (lunchList[j][i] === undefined) {
+                lunchList[j][i] = ''
+              }
+              $("#lunch").append("<td>" + lunchList[j][i] + "</td>")
+            }
+            $("#lunch").append("</tr>")
+          }
+          $("#lunch").append("</table>")
+        });
 
-      showDinnerButton.addEventListener("click", () => {
-        FinalExamPage.style.display = "none"
-        lunchPage.style.display = "none";
-        examsPage.style.display = "none";
-        schedulePage.style.display = "none";
-        dinnerPage.style.display = "block";
-      });
 
-      backToMainButton.addEventListener("click", () => {
-        lunchPage.style.display = "none";
-        FinalExamPage.style.display = "none"
-        examsPage.style.display = "none";
-        schedulePage.style.display = "none";
-        dinnerPage.style.display = "none";
-      });
-      
     </script>
-  </body>
+    <br />
+    
+    <button class="button" id="backToMainButton2">메인으로 돌아가기</button>
+  </div>
+
+  <div class="subpage-content" id="dinnerPage">
+    <h2>이번주 석식표</h2>
+    <a id="dinner"></a>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+      var date = new Date();
+      var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+      var startOfWeek = new Date(today);
+      startOfWeek.setDate(today.getDate() - today.getDay() + (today.getDay() === 0 ? -6 : 1)); // 일요일은 0, 월요일은 1
+
+      var endOfWeek = new Date(today);
+      endOfWeek.setDate(today.getDate() - today.getDay() + 5); // 금요일
+
+      // startOfWeek과 endOfWeek를 이용하여 원하는 형식으로 날짜를 생성
+      var Today = startOfWeek.getFullYear() + ('0' + (startOfWeek.getMonth() + 1)).slice(-2) + ('0' + startOfWeek.getDate()).slice(-2);
+      var NextWeek = endOfWeek.getFullYear() + ('0' + (endOfWeek.getMonth() + 1)).slice(-2) + ('0' + endOfWeek.getDate()).slice(-2);
+
+      $.ajax({
+        method: "GET",
+        url: "https://open.neis.go.kr/hub/mealServiceDietInfo?",
+        data: {
+          KEY: '148b1aea2e4e4776acb81dae0f790b81',
+          ATPT_OFCDC_SC_CODE: 'B10',
+          SD_SCHUL_CODE: '7010965',
+          type: 'xml',
+          MLSV_FROM_YMD: Today,
+          MLSV_TO_YMD: NextWeek
+
+        }
+      })
+        .done(function (msg) {
+          console.log(msg);
+          function cleanText(text) {
+            return text.replace(/\(([^)]+)\)/g, '').replace(/[*^]/g, '');
+          }
+
+          const dateList = []
+          const itemList = []
+          const IsToday = []
+          for (var i = 0; i < 9; i++) {
+            dateList.push($(msg).find('MLSV_YMD').eq(i).text())
+          }
+
+
+          function formatDate(date) {
+            var year = date.getFullYear();
+            var month = ('0' + (date.getMonth() + 1)).slice(-2);
+            var day = ('0' + date.getDate()).slice(-2);
+            return '' + year + month + day;
+          }
+          var currentDate = new Date(startOfWeek);
+          while (currentDate <= endOfWeek) {
+            IsToday.push(formatDate(currentDate));
+            currentDate.setDate(currentDate.getDate() + 1); // 다음 날짜로 이동
+
+          } //여기까지 바꾸기
+
+          for (var i = 0; i < 9; i++) {
+            var originalText = $(msg).find('DDISH_NM').eq(i).text();
+            var cleanedText = cleanText(originalText);
+            itemList.push(cleanedText.split('<br/>').filter(Boolean));
+          }
+
+          for (var i = 0; i < 9; i++) {
+            var Islunch = $(msg).find('MMEAL_SC_NM').eq(i).text();
+            if (Islunch === '중식') {
+              dateList[i] = ''
+              itemList.splice(i, 1, [])
+            }
+          }
+
+          const dinnerList = []
+          const new_date = []
+
+          for (var i = 0; i < 9; i++) {
+            if (itemList[i] != 0) {
+              dinnerList.push(itemList[i])
+              new_date.push(dateList[i])
+            }
+          }
+          if (dinnerList.length < 5) {
+            for (var i = 0; i < 5 - dinnerList.length; i++) {
+              dinnerList.push([])
+              new_date.push('')
+            }
+          }
+          console.log(IsToday, new_date)
+          var new_dinnerList = []
+
+          for (var i = 0; i < 5; i++) {
+            var Islunch = $(msg).find('MMEAL_SC_NM').eq(i).text();
+            for (var j = 0; j < 5; j++) {
+              if (IsToday[i] === new_date[j]) {
+                console.log(i, j)
+                new_dinnerList[i] = dinnerList[j]
+                if (new_date[j] === '') {
+                  continue;
+                }
+                else if (Islunch === '중식') {
+                  continue;
+                }
+              }
+              if (new_dinnerList[i] === undefined) {
+                new_dinnerList[i] = []
+              }
+            }
+          }
+          console.log(new_dinnerList)
+          $(document).ready(function () {
+            $("#dinner").append('<table>')
+            $("#dinner").append("<tr>" + "<th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>" + "</tr>")
+            $("#dinner").append("<tr>")
+            for (var i = 0; i < 5; i++) {
+              $("#dinner").append("<th>" + IsToday[i] + "</th>")
+            }
+            $("#dinner").append("</tr>")
+
+            for (var i = 0; i < 6; i++) {
+              $("#dinner").append("<tr>")
+              for (var j = 0; j < 5; j++) {
+                if (new_dinnerList[j][i] === undefined && i === 0) {
+                  new_dinnerList[j][i] = '급식 없음'
+                }
+                else if (new_dinnerList[j][i] === undefined) {
+                  new_dinnerList[j][i] = ''
+                }
+                $("#dinner").append("<td>" + new_dinnerList[j][i] + "</td>")
+              }
+              $("#dinner").append("</tr>")
+            }
+            $("#dinner").append("</table>")
+          });
+        });
+    </script><br />
+    <button class="button" id="backToMainButton3">메인으로 돌아가기</button>
+  </div>
+
+  <div class="subpage-content" id="schedulePage">
+    <h2>2023년 학사일정</h2>
+  <h4>최대 일주일의 정보를 전달합니다.</h4>
+    <a id="schedule"></a>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+      date = new Date();
+      year = date.getFullYear();
+      month = date.getMonth() + 1;
+      day = date.getDate();
+      Today = String(year) + String(month) + String(day);
+      NextWeek = String(year) + String(month) + String(day + 7);
+
+      $.ajax({
+        method: "GET",
+        url: "https://open.neis.go.kr/hub/SchoolSchedule?",
+        data: {
+          KEY: '148b1aea2e4e4776acb81dae0f790b81',
+          ATPT_OFCDC_SC_CODE: 'B10',
+          type: 'xml',
+          SD_SCHUL_CODE: '7010965',
+          AA_FROM_YMD: Today,
+          AA_TO_YMD: NextWeek
+
+        }
+      })
+        .done(function (msg) {
+          console.log(msg);
+          const eventNM = []
+          const eventDate = []
+          for (var i = 0; i < 6; i++) {
+            var specificData = $(msg).find('EVENT_NM').eq(i).text();
+            var specificData2 = $(msg).find('AA_YMD').eq(i).text();
+            var TwGrade_yn = $(msg).find('TW_GRADE_EVENT_YN').eq(i).text();
+            if (specificData === '토요휴업일') {
+              continue;
+            }
+            else if (!specificData) {
+              continue;
+            }
+            else if (TwGrade_yn === 'N') {
+              continue;
+            }
+            eventNM.push(specificData)
+            eventDate.push(specificData2)
+          }
+          console.log(eventNM)
+          console.log(eventDate)
+          $("#schedule").append("<table>")
+          $("#schedule").append("<tr>" + "<th>일자</th>" + "<th>일정</th>" + "</tr>")
+          for (var i = 0; i < 5; i++) {
+            $("#schedule").append("<tr>")
+            $("#schedule").append("<th>" + eventDate[i] + "</th>")
+            $("#schedule").append("<th>" + eventNM[i] + "</th>")
+            $("#schedule").append("</tr>")
+          }
+
+          $("#schedule").append("</table>")
+        });
+
+    </script>
+    <br />
+    <button class="button" id="backToMainButton4">메인으로 돌아가기</button>
+  </div>
+
+  <div class="subpage-content" id="examsPage">
+    <h2>수행평가 목록</h2>
+    <table>
+      <!-- 수행평가 테이블 내용 -->
+      <tr>
+        <th>과목</th>
+        <th>수행평가</th>
+        <th>마감일</th>
+      </tr>
+      <tr>
+        <td class="dark-background">국어</td>
+        <td></td>
+        <td>2023-XX-XX</td>
+      </tr>
+      <tr>
+        <td class="dark-background">영어</td>
+        <td></td>
+        <td>2023-XX-XX</td>
+      </tr>
+      <tr>
+        <td class="dark-background">수학</td>
+        <td></td>
+        <td>2023-XX-XX</td>
+      </tr>
+      <tr>
+        <td class="dark-background">물리학</td>
+        <td></td>
+        <td>2023-XX-XX</td>
+      </tr>
+      <tr>
+        <td class="dark-background">화학</td>
+        <td></td>
+        <td>2023-XX-XX</td>
+      </tr>
+      <tr>
+        <td class="dark-background">생명과학</td>
+        <td></td>
+        <td>2023-XX-XX</td>
+      </tr>
+      <tr>
+        <td class="dark-background">심화수학</td>
+        <td></td>
+        <td>2023-XX-XX</td>
+      </tr>
+      <tr>
+        <td class="dark-background">프로그래밍</td>
+        <td></td>
+        <td>2023-XX-XX</td>
+      </tr>
+      <tr>
+        <td class="dark-background">데이터과학과<br />머신러닝</td>
+        <td></td>
+        <td>2023-XX-XX</td>
+      </tr>
+      <tr>
+        <td class="dark-background">일본어</td>
+        <td></td>
+        <td>2023-XX-XX</td>
+      </tr>
+    </table>
+    <button class="button" id="backToMainButton5">메인으로 돌아가기</button>
+  </div>
+
+
+  <script>
+    // 디데이 날짜 설정 (YYYY-MM-DD 형식)
+    const dDayDate = new Date("2024-01-10T00:00:00+09:00");
+    const newDDayDate = new Date("2024-11-14T00:00:00+09:00");
+
+    // 디데이 계산 함수
+    function calculateCountdown(targetDate) {
+      const currentDate = new Date();
+      const timeDifference = targetDate - currentDate;
+      const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // 올림으로 변경
+      return daysLeft;
+    }
+
+    // 초기 로드시 디데이 표시 업데이트
+    function updateCountdown() {
+      const daysLeft = calculateCountdown(dDayDate);
+      const bigCountdown = document.getElementById("bigCountdown");
+      bigCountdown.textContent =
+        "D-" + (daysLeft >= 0 ? daysLeft.toString().padStart(2, "0") : "00");
+    }
+
+    function updateNewCountdown() {
+      const newDaysLeft = calculateCountdown(newDDayDate);
+      const newBigCountdown = document.getElementById("newBigCountdown");
+      newBigCountdown.textContent =
+        "D-" + (newDaysLeft >= 0 ? newDaysLeft.toString().padStart(2, "0") : "00");
+    }
+
+    updateCountdown();
+    updateNewCountdown();
+
+    const showLunchButton = document.getElementById("showLunchButton");
+    const showttbButton = document.getElementById("showttbButton");
+    const showshdButton = document.getElementById("showshdButton");
+    const showbusButton = document.getElementById("showbusButton");
+    const showsleepButton = document.getElementById("showsleepButton");
+    const showExamsButton = document.getElementById("showExamsButton");
+    const showScheduleButton = document.getElementById("showScheduleButton");
+    const lunchPage = document.getElementById("lunchPage");
+    const timetablePage = document.getElementById("timetablePage");
+    const examsPage = document.getElementById("examsPage");
+    const schedulePage = document.getElementById("schedulePage");
+    const backToMainButton = document.getElementById("backToMainButton");
+    const backToMainButton2 = document.getElementById("backToMainButton2");
+    const backToMainButton3 = document.getElementById("backToMainButton3");
+    const backToMainButton4 = document.getElementById("backToMainButton4");
+    const backToMainButton5 = document.getElementById("backToMainButton5");
+
+    showLunchButton.addEventListener("click", () => {
+      examsPage.style.display = "none";
+      timetablePage.style.display = "none"
+      schedulePage.style.display = "none";
+      lunchPage.style.display = "block";
+      dinnerPage.style.display = "none";
+    });
+
+    showttbButton.addEventListener("click", () => {
+      examsPage.style.display = "none";
+      timetablePage.style.display = "block"
+      schedulePage.style.display = "none";
+      lunchPage.style.display = "none";
+      dinnerPage.style.display = "none";
+    });
+
+    showExamsButton.addEventListener("click", () => {
+      lunchPage.style.display = "none";
+      timetablePage.style.display = "none"
+      schedulePage.style.display = "none";
+      examsPage.style.display = "block";
+      dinnerPage.style.display = "none";
+    });
+
+    showScheduleButton.addEventListener("click", () => {
+      lunchPage.style.display = "none";
+      timetablePage.style.display = "none";
+      examsPage.style.display = "none";
+      schedulePage.style.display = "block";
+      dinnerPage.style.display = "none";
+    });
+
+    showDinnerButton.addEventListener("click", () => {
+      lunchPage.style.display = "none";
+      timetablePage.style.display = "none"
+      examsPage.style.display = "none";
+      schedulePage.style.display = "none";
+      dinnerPage.style.display = "block";
+    });
+
+    backToMainButton.addEventListener("click", () => {
+      lunchPage.style.display = "none";
+      timetablePage.style.display = "none";
+      examsPage.style.display = "none";
+      schedulePage.style.display = "none";
+      dinnerPage.style.display = "none";
+    });
+
+    backToMainButton2.addEventListener("click", () => {
+      lunchPage.style.display = "none";
+      timetablePage.style.display = "none";
+      examsPage.style.display = "none";
+      schedulePage.style.display = "none";
+      dinnerPage.style.display = "none";
+    });
+
+    backToMainButton3.addEventListener("click", () => {
+      lunchPage.style.display = "none";
+      timetablePage.style.display = "none";
+      examsPage.style.display = "none";
+      schedulePage.style.display = "none";
+      dinnerPage.style.display = "none";
+    });
+
+    backToMainButton4.addEventListener("click", () => {
+      lunchPage.style.display = "none";
+      timetablePage.style.display = "none";
+      examsPage.style.display = "none";
+      schedulePage.style.display = "none";
+      dinnerPage.style.display = "none";
+    });
+
+    backToMainButton5.addEventListener("click", () => {
+      lunchPage.style.display = "none";
+      timetablePage.style.display = "none";
+      examsPage.style.display = "none";
+      schedulePage.style.display = "none";
+      dinnerPage.style.display = "none";
+    });
+  </script>
+</body>
+
 </html>
