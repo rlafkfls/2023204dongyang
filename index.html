@@ -453,7 +453,6 @@
         }
       })
         .done(function (msg) {
-          console.log(msg);
           const eventNM = []
           const eventDate = []
           for (var i = 0; i < 6; i++) {
@@ -472,14 +471,19 @@
             eventNM.push(specificData)
             eventDate.push(specificData2)
           }
-          console.log(eventNM)
-          console.log(eventDate)
           $("#schedule").append("<table>")
           $("#schedule").append("<tr>" + "<th>일자</th>" + "<th>일정</th>" + "</tr>")
-          for (var i = 0; i < 5; i++) {
+          for (var i = 0; i < 6; i++) {
+            if(eventDate[i] === undefined){
+              eventDate[i]=''
+            }
+            if(eventNM[i] === undefined){
+              eventNM[i]='학사일정이 없습니다.'
+            }
             $("#schedule").append("<tr>")
             $("#schedule").append("<th>" + eventDate[i] + "</th>")
             $("#schedule").append("<th>" + eventNM[i] + "</th>")
+            
             $("#schedule").append("</tr>")
           }
 
