@@ -194,7 +194,6 @@
         }
       })
         .done(function (msg) {
-          console.log(msg);
           function cleanText(text) {
             return text.replace(/\(([^)]+)\)/g, '').replace(/[*^]/g, '');
           }
@@ -319,7 +318,6 @@
         }
       })
         .done(function (msg) {
-          console.log(msg);
           function cleanText(text) {
             return text.replace(/\(([^)]+)\)/g, '').replace(/[*^]/g, '');
           }
@@ -374,14 +372,12 @@
               new_date.push('')
             }
           }
-          console.log(IsToday, new_date)
           var new_dinnerList = []
 
           for (var i = 0; i < 5; i++) {
             var Islunch = $(msg).find('MMEAL_SC_NM').eq(i).text();
             for (var j = 0; j < 5; j++) {
               if (IsToday[i] === new_date[j]) {
-                console.log(i, j)
                 new_dinnerList[i] = dinnerList[j]
                 if (new_date[j] === '') {
                   continue;
@@ -395,7 +391,6 @@
               }
             }
           }
-          console.log(new_dinnerList)
           $(document).ready(function () {
             $("#dinner").append('<table>')
             $("#dinner").append("<tr>" + "<th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>" + "</tr>")
@@ -434,10 +429,25 @@
     <script>
       date = new Date();
       year = date.getFullYear();
-      month = date.getMonth() + 1;
+      month = date.getMonth()+1;
       day = date.getDate();
-      Today = String(year) + String(month) + String(day);
-      NextWeek = String(year) + String(month) + String(day + 7);
+      dayslater = 0
+      
+      if(month < 10){
+          month = '0' + String(month)
+      }
+
+      if(day < 10){
+          day = '0' + String(day)
+          if(day < 4){
+              dayslater = '0' + String(setInterval(day) + 7)
+          }
+          else{
+              dayslater = String(setInterval(day) + 7)
+          }
+      }
+      Today = String(year) + month + day;
+      NextWeek = String(year) + month + dayslater;
 
       $.ajax({
         method: "GET",
@@ -471,9 +481,10 @@
             eventNM.push(specificData)
             eventDate.push(specificData2)
           }
+
           $("#schedule").append("<table>")
           $("#schedule").append("<tr>" + "<th>일자</th>" + "<th>일정</th>" + "</tr>")
-          for (var i = 0; i < 6; i++) {
+          for (var i = 0; i < 5; i++) {
             if(eventDate[i] === undefined){
               eventDate[i]=''
             }
