@@ -465,10 +465,11 @@
         .done(function (msg) {
           const eventNM = []
           const eventDate = []
-          for (var i = 0; i < 6; i++) {
+          for (var i = 0; i < 10; i++) {
             var specificData = $(msg).find('EVENT_NM').eq(i).text();
             var specificData2 = $(msg).find('AA_YMD').eq(i).text();
             var TwGrade_yn = $(msg).find('TW_GRADE_EVENT_YN').eq(i).text();
+            
             if (specificData === '토요휴업일') {
               continue;
             }
