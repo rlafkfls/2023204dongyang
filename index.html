@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2023년 동양고등학교 2학년 4반 정보 웹사이트</title>
+  <title>2023년 동양고등학교 3학년 정보 웹사이트</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -67,7 +67,7 @@
     <tr>
       <td>
         <div id="countdownContainer">
-          <div id="smallTitle">겨울방학식까지</div>
+          <div id="smallTitle">2025년 까지</div>
           <div id="bigCountdown" style="font-size: 32px; font-weight: bold">D-00</div>
         </div>
       </td>
@@ -81,11 +81,9 @@
   </table>
   <div class="button-container">
     <div class="horizontal-buttons">
-      <button class="button" id="showScheduleButton">2023학년도 학사일정</button>
-      <button class="button" id="showttbButton">2-4 시간표</button>
+      <button class="button" id="showScheduleButton">2024학년도 학사일정</button>
       <button class="button" id="showLunchButton">이번주 중식</button>
       <button class="button" id="showDinnerButton">이번주 석식</button>
-      <button class="button" id="showExamsButton">수행평가 목록</button>
     </div>
   </div>
 
@@ -468,7 +466,7 @@
           for (var i = 0; i < 10; i++) {
             var specificData = $(msg).find('EVENT_NM').eq(i).text();
             var specificData2 = $(msg).find('AA_YMD').eq(i).text();
-            var TwGrade_yn = $(msg).find('TW_GRADE_EVENT_YN').eq(i).text();
+            var ThGrade_yn = $(msg).find('THREE_GRADE_EVENT_YN').eq(i).text();
             
             if (specificData === '토요휴업일') {
               continue;
@@ -476,7 +474,7 @@
             else if (!specificData) {
               continue;
             }
-            else if (TwGrade_yn === 'N') {
+            else if (ThGrade_yn === 'N') {
               continue;
             }
             eventNM.push(specificData)
@@ -573,7 +571,7 @@
 
   <script>
     // 디데이 날짜 설정 (YYYY-MM-DD 형식)
-    const dDayDate = new Date("2024-01-10T00:00:00+09:00");
+    const dDayDate = new Date("2025-01-01T00:00:00+09:00");
     const newDDayDate = new Date("2024-11-14T00:00:00+09:00");
 
     // 디데이 계산 함수
