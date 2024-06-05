@@ -62,7 +62,7 @@
 </head>
 
 <body>
-  <h1 class="main-title">2023년 동양고등학교 2학년 4반 정보 웹사이트</h1>
+  <h1 class="main-title">2024년 동양고등학교 3학년 정보 웹사이트</h1>
   <table class="no-border-table">
     <tr>
       <td>
@@ -85,77 +85,6 @@
       <button class="button" id="showLunchButton">이번주 중식</button>
       <button class="button" id="showDinnerButton">이번주 석식</button>
     </div>
-  </div>
-
-  <div class="subpage-content" id="timetablePage">
-    <h2>2-4 시간표</h2>
-    <table>
-      <tr>
-        <th></th>
-        <th>월</th>
-        <th>화</th>
-        <th>수</th>
-        <th>목</th>
-        <th>금</th>
-      </tr>
-      <tr>
-        <th>1교시 (8:00~8:50)</th>
-        <th>자율</th>
-        <th>일본어1</th>
-        <th>수학2</th>
-        <th>영어2A</th>
-        <th>영어2A</th>
-      </tr>
-      <tr>
-        <th>2교시 (9:00~9:50)</th>
-        <th>운동A</th>
-        <th>수학2</th>
-        <th>과학교양A</th>
-        <th>과학교양A</th>
-        <th>운동B</th>
-      </tr>
-      <tr>
-        <th>3교시 (10:00~10:50)</th>
-        <th>수학2</th>
-        <th>과학교양A</th>
-        <th>음미선택</th>
-        <th>일본어1</th>
-        <th>과학교양C</th>
-      </tr>
-      <tr>
-        <th>4교시 (11:00~11:50)</th>
-        <th>독서B</th>
-        <th>과학교양C</th>
-        <th>과학교양B</th>
-        <th>과학교양B</th>
-        <th>진로</th>
-      </tr>
-      <tr>
-        <th>5교시 (12:50~13:40)</th>
-        <th>과학교양B</th>
-        <th>영어2A</th>
-        <th>봉사</th>
-        <th>수학2</th>
-        <th>수학2</th>
-      </tr>
-      <tr>
-        <th>6교시 (13:50~14:40)</th>
-        <th>과학교양D</th>
-        <th>독서A</th>
-        <th>동아리</th>
-        <th>과학교양C</th>
-        <th>독서B</th>
-      </tr>
-      <tr>
-        <th>7교시 (14:50~15:40)</th>
-        <th>독서A</th>
-        <th>과학교양D</th>
-        <th></th>
-        <th>과학교양D</th>
-        <th>영어2B</th>
-      </tr>
-    </table>
-    <button class="button" id="backToMainButton">메인으로 돌아가기</button>
   </div>
 
   <div class="subpage-content" id="lunchPage">
@@ -505,69 +434,6 @@
     <button class="button" id="backToMainButton4">메인으로 돌아가기</button>
   </div>
 
-  <div class="subpage-content" id="examsPage">
-    <h2>수행평가 목록</h2>
-    <table>
-      <!-- 수행평가 테이블 내용 -->
-      <tr>
-        <th>과목</th>
-        <th>수행평가</th>
-        <th>마감일</th>
-      </tr>
-      <tr>
-        <td class="dark-background">국어</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">영어</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">수학</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">물리학</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">화학</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">생명과학</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">심화수학</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">프로그래밍</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">데이터과학과<br />머신러닝</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-      <tr>
-        <td class="dark-background">일본어</td>
-        <td></td>
-        <td>2023-XX-XX</td>
-      </tr>
-    </table>
-    <button class="button" id="backToMainButton5">메인으로 돌아가기</button>
-  </div>
-
 
   <script>
     // 디데이 날짜 설정 (YYYY-MM-DD 형식)
@@ -601,11 +467,6 @@
     updateNewCountdown();
 
     const showLunchButton = document.getElementById("showLunchButton");
-    const showttbButton = document.getElementById("showttbButton");
-    const showshdButton = document.getElementById("showshdButton");
-    const showbusButton = document.getElementById("showbusButton");
-    const showsleepButton = document.getElementById("showsleepButton");
-    const showExamsButton = document.getElementById("showExamsButton");
     const showScheduleButton = document.getElementById("showScheduleButton");
     const lunchPage = document.getElementById("lunchPage");
     const timetablePage = document.getElementById("timetablePage");
@@ -624,23 +485,7 @@
       lunchPage.style.display = "block";
       dinnerPage.style.display = "none";
     });
-
-    showttbButton.addEventListener("click", () => {
-      examsPage.style.display = "none";
-      timetablePage.style.display = "block"
-      schedulePage.style.display = "none";
-      lunchPage.style.display = "none";
-      dinnerPage.style.display = "none";
-    });
-
-    showExamsButton.addEventListener("click", () => {
-      lunchPage.style.display = "none";
-      timetablePage.style.display = "none"
-      schedulePage.style.display = "none";
-      examsPage.style.display = "block";
-      dinnerPage.style.display = "none";
-    });
-
+    
     showScheduleButton.addEventListener("click", () => {
       lunchPage.style.display = "none";
       timetablePage.style.display = "none";
